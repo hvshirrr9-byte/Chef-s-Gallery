@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "Pantry": {
+      "title": "Pantry List",
+      "description": "User's current list of ingredients in their pantry",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The Firebase Auth UID of the owner"
+        },
+        "ingredients": {
+          "type": "array",
+          "description": "List of ingredients"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the pantry was last updated"
+        }
+      },
+      "required": ["userId", "ingredients", "updatedAt"]
+    },
+    "FavoriteRecipe": {
+      "title": "Favorite Recipe",
+      "description": "A recipe favourited by a user",
+      "type": "object",
+      "properties": {
+        "recipeId": {
+          "type": "integer",
+          "description": "The Spoonacular ID of the recipe"
+        },
+        "title": {
+          "type": "string",
+          "description": "Recipe title"
+        },
+        "image": {
+          "type": "string",
+          "description": "Recipe image URL"
+        },
+        "userId": {
+          "type": "string",
+          "description": "The Firebase Auth UID of the owner"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the recipe was favorited"
+        }
+      },
+      "required": ["recipeId", "title", "image", "userId", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/pantries/{userId}": {
+      "schema": "Pantry",
+      "description": "Stores user pantry ingredients indexed by user UID"
+    },
+    "/favorites/{favoriteId}": {
+      "schema": "FavoriteRecipe",
+      "description": "Stores favorited recipes of all users"
+    }
+  }
+}

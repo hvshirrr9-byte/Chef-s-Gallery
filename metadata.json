@@ -1,0 +1,6 @@
+{
+  "name": "Chef's Gallery",
+  "description": "A fresh, vibrant, and interactive recipe finder using the ingredients in your pantry, powered by Spoonacular and Firebase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
